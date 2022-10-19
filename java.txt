@@ -1,0 +1,50 @@
+package fired;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class jsd {
+	public static void dataIns(){
+		String text
+        = "Computer Science Portal GeeksforGeeks";
+
+    // Try block to check for exceptions
+    try {
+        BufferedWriter f_writer
+            = new BufferedWriter(new FileWriter("filename.txt"));
+        for(int i=0;i<3;i++){
+        	f_writer.write(text+'\n');
+        }
+        System.out.print(
+            "File is created successfully with the content.");
+        f_writer.close();
+    }
+
+    // Catch block to handle if exceptions occurs
+    catch (IOException e) {
+
+        // Print the exception on console
+        // using getMessage() method
+        System.out.print(e.getMessage());
+    }
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {  
+		      File myObj = new File("filename.txt");  
+		      if (myObj.createNewFile()) {  
+		        System.out.println("File created: " + myObj.getName());  
+		        dataIns();
+		      } else {  
+		        System.out.println("File already exists."); 
+		        dataIns();
+		      }
+		    } catch (IOException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();  
+		    }  
+		  }  
+}
